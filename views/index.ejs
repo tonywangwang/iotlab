@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <title>NESC IoT 实验室</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RPi-Monitor">
+  <meta name="author" content="RPi-Experiences">
+  <meta http-equiv="Cache-control" content="public" />
+
+  <!-- CSS -->
+  <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+  <link href="/stylesheets/rpi-iot.css" rel="stylesheet">
+
+  <!-- Favicon-->
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+</head>
+
+<body onload="loadPhotos()">
+
+  <!-- Fixed navbar -->
+  <div id='topmenu'></div>
+
+  <!-- Begin page content -->
+  <div class="container-fluid column-fluid" style="text-align:center;padding-top:20px;">
+
+    <div>
+      <button type="button" class="btn btn-primary" onclick="$.ajax({url:'/led/1'})">白色LED灯</button>
+      <button type="button" class="btn btn-success" onclick="$.ajax({url:'/led/2'})">绿色LED灯</button>
+      <button type="button" class="btn btn-danger" onclick="$.ajax({url:'/led/3'})">红色LED灯</button>
+    </div>
+    <div style="margin-top:10px;">
+      <button type="button" class="btn btn-primary" onclick="capture()">远程拍照</button>
+      <button type="button" class="btn btn-success" onclick="playPhotos();">播放照片</button>
+      <button type="button" class="btn btn-danger" onclick="clearPhotos();">清除照片</button>
+
+      <img id='photo' src="/images/webcam.png" width="90%" style="margin-top:20px;cursor:pointer" onclick="capture()" />
+
+    </div>
+
+    <div id="photo2" style="margin-top:20px;"></div>
+
+
+  </div>
+
+  <!-- Fixed footer -->
+  <div id="footer"></div>
+
+  <!-- Dialog place holder -->
+  <div id="dialogs"></div>
+
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <script src="/javascripts/rpi-iot.js"></script>
+
+</body>
+
+</html>
