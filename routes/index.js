@@ -1,8 +1,10 @@
 var express = require('express');
 var gpio = require('rpi-gpio');
+var path=require('path');
 var led = require('./led');
 var camera = require('./camera');
 var router = express.Router();
+
 
 gpio.setMode(gpio.MODE_BCM);
 
@@ -12,6 +14,13 @@ let cam = new camera(1440,900);
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index',{ photoUrl: "/images/photo/favicon.png" });
+});
+
+
+router.get('/chat', function(req, res){
+  console.log(path.join(__dirname,'../views/chat.html'));
+  
+  res.sendFile(path.join(__dirname,'../views/chat.html'));
 });
 
 router.get('/led/1', function(req, res, next) {

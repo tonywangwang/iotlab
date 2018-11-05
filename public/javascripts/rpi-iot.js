@@ -26,8 +26,7 @@ function clearPhotos() {
   localStorage.setItem('photos', ''); $('#photo2').html('');
 }
 
-function playPhotos()
-{
+function playPhotos(){
   for(var i=0;i< $("img[name='p2']").length;i++)
   {
     setTimeout(setPhoto,500+i*500,i);
@@ -39,8 +38,6 @@ function playPhotos()
   }
 
 }
-
-
 
 function AddFooter() {
   $('#footer').html(
@@ -105,17 +102,6 @@ function AddTopmenu() {
   $('#topmenu').html(topmenu);
 }
 
-function getVersion() {
-  $.ajax({
-    url: 'version.json',
-    dataType: 'json',
-    async: false,
-    success: function (data) {
-      localStorage.setItem('version', data.version);
-    }
-  })
-}
-
 $(function () {
 
   if (localStorage == null) {
@@ -124,13 +110,8 @@ $(function () {
     );
   }
 
-  // Construct the page template
-  //getVersion();
   AddTopmenu();
-  //AddDialogs();
   AddFooter();
-  //UpdateMenu();
-
-    loadPhotos();
+  loadPhotos();
 
 });
